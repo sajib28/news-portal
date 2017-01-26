@@ -1,0 +1,6 @@
+.git/
+.idea/*
+assets/
+img/
+uploads/
+nbproject/

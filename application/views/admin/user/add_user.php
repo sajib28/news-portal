@@ -7,7 +7,7 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        Add user
+                        Add user <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
                     </div>
                 </div>
 

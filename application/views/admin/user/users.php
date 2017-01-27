@@ -6,7 +6,7 @@
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Users table&nbsp;<a class="btn green" href="http://localhost/news/super_admin/add_user">Add User</a>
+                       Users Table&nbsp;<a class="btn green" href="<?php echo base_url();?>super_admin/add_user">Add User</a>
                     </div>
                 </div>
 

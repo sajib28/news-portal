@@ -6,7 +6,7 @@
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption">
-                        Category table&nbsp;<a class="btn green" href="<?php echo base_url();?>super_admin/add_category">Add Category</a>
+                        Country table&nbsp;<a class="btn green" href="<?php echo base_url();?>super_admin/add_country">Add Country</a>
                     </div>
                 </div>
 
@@ -16,8 +16,8 @@
                     <thead>
                         <tr>
                             <th>Serial No</th>
-                            <th>Name</th>
-                            <th>Category description</th>
+                            <th>Country Name</th>
+                            <th>Country Code</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -25,8 +25,8 @@
                     <tfoot>
                         <tr>
                             <th>Serial No</th>
-                            <th>Name</th>
-                            <th>Category description</th>
+                            <th>Country Name</th>
+                            <th>Country Code</th>
                             <th>Status</th>
                             <th>Action</th>
 
@@ -35,16 +35,16 @@
                     <tbody>
                         <?php
                         $i = 0;
-                        foreach ($all_category as $v_category){
+                        foreach ($all_country as $v_country){
                             
                             $i++;
                         ?>   
                         <tr>
 
                             <td><input type="checkbox" name="check"/>&nbsp;<?php echo $i?></td>
-                            <td><?php echo $v_category->category_name;?></td>
-                            <td><?php echo $v_category->category_description;?></td>
-                          <?php  if($v_category->status == 1){ ?>
+                            <td><?php echo $v_country->country_name;?></td>
+                            <td><?php echo $v_country->country_code;?></td>
+                          <?php  if($v_country->status == 1){ ?>
                             <td>Published</td>
                           <?php } 
                             else{
@@ -54,18 +54,18 @@
                             }
                             ?>
                             <td>
-                                <?php  if($v_category->status == 1){ ?>
-                                <a class="btn btn-danger" href="<?php echo base_url();?>super_admin/unpublished_category/<?php echo $v_category->id;?>"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+                                <?php  if($v_country->status == 1){ ?>
+                                <a class="btn btn-danger" href="<?php echo base_url();?>super_admin/unpublished_country/<?php echo $v_country->id;?>"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
                                 <?php } 
                             else{
                                 ?>
-                               <a class="btn green" href="<?php echo base_url();?>super_admin/published_category/<?php echo $v_category->id;?>"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>
+                               <a class="btn green" href="<?php echo base_url();?>super_admin/published_country/<?php echo $v_country->id;?>"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>
                             <?php 
                             }
                             ?>
                                 
-                                <a class="btn green" href="<?php echo base_url();?>super_admin/edit_category/<?php echo $v_category->id;?>">Edit</a>
-                                <a onclick="return confirm('Are you sure');" class="btn btn-danger" href="<?php echo base_url();?>super_admin/delete_category/<?php echo $v_category->id;?>">Delete </a>
+                                <a class="btn green" href="<?php echo base_url();?>super_admin/edit_country/<?php echo $v_country->id;?>">Edit</a>
+                                <a onclick="return confirm('Are you sure');" class="btn btn-danger" href="<?php echo base_url();?>super_admin/delete_country/<?php echo $v_country->id;?>">Delete </a>
                             </td>
 
                         </tr>

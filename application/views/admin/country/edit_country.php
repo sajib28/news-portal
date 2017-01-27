@@ -7,39 +7,25 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        Add Category <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
+                        Edit Country <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
                     </div>
                 </div>
 
                 <div class="portlet-body">
                     <!--start form-->
-                    <?php
-                $msg = $this->session->userdata('message');
-                if ($msg) {
-                    ?>
-                    <div class="alert alert-success">
-                        <button class="close" data-close="alert"></button>
-                        <span>
-                            <?php
-                            echo $msg;
-                            $this->session->unset_userdata('message');
-                            ?>
-                        </span>
-                    </div>
-                <?php } ?>
-                    
-                    <form action="<?php echo base_url(); ?>super_admin/save_category" method="post" class="">
+                   
+                    <form name="edit-country-form" action="<?php echo base_url(); ?>super_admin/update_country" method="post" class="">
                         <div class="row">
                             <div class="col-md-8 form-group">
                                 <label class="control-label">Category Name</label>
-                                <input type="text" name="category_name" class="form-control" placeholder="Enter category">
-
+                                <input type="text" name="country_name" class="form-control" placeholder="Enter country" value="<?php echo $country_info->country_name;?>">
+                                <input type="hidden" name="id" class="form-control" placeholder="Enter country" value="<?php echo $country_info->id;?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8 form-group">
-                                <label class="control-label">Category Description</label>
-                                <textarea class="form-control" name="category_description" rows="6" placeholder="Type Description"></textarea>
+                                <label class="control-label">Category Code</label>
+                                <textarea class="form-control" name="country_code" rows="6"><?php echo $country_info->country_code;?></textarea>
                                 
 
                             </div>
@@ -59,7 +45,7 @@
                             <div class="col-md-12">
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn green">Add Category</button>
+                                    <button type="submit" class="btn green">Update Country</button>
                                 </div>
                             </div></div>
                     </form>
@@ -71,3 +57,8 @@
     </div>
     <!-- END PAGE CONTENT-->
 </div>
+<script>
+document.forms['edit-country-form'].elements['status'].value='<?php echo $country_info->status;?>';
+</script>
+
+    

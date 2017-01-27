@@ -7,7 +7,7 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        Edit News
+                        Edit News <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@
                         </div>
                     <?php } ?>
                    
-                    <form name="edit-news-form" action="<?php echo base_url(); ?>super_admin/update_news" method="post" class="">
+                    <form name="edit-news-form" action="<?php echo base_url(); ?>super_admin/update_news" method="post" class="" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-8 form-group">
                                 <label class="control-label">News Title</label>
@@ -46,6 +46,7 @@
                         <div class="row">
                             <div class="col-md-8 form-group">
                                 <label class="control-label">News Category</label>
+                                <?php echo $update_news_info->category_id;?>
                                 <select name="category_id" class="form-control">
                                     <option>Select Category Name</option>
                                     <?php
@@ -53,7 +54,9 @@
                                     foreach ($all_publish_category as $v_category){
                                    
                                        ?> 
-                                    <option value="<?php echo $v_category->id;?>"><?php echo $v_category->category_name;?></option>
+                                    <option value="<?php echo $v_category->id;?>" <?php echo $v_category->id == $update_news_info->category_id ? 'selected' : ''?>>
+                                        <?php echo $v_category->category_name;?>
+                                    </option>
                                      <?php
                                     }
 
@@ -91,7 +94,7 @@
                             <div class="col-md-12">
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn green">Update</button>
+                                    <button type="submit" class="btn green">Update News</button>
                                 </div>
                             </div></div>
                     </form>

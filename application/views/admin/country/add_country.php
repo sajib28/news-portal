@@ -7,7 +7,7 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        Add Category <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
+                        Add Country <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
                     </div>
                 </div>
 
@@ -28,22 +28,20 @@
                     </div>
                 <?php } ?>
                     
-                    <form action="<?php echo base_url(); ?>super_admin/save_category" method="post" class="">
+                    <form action="<?php echo base_url(); ?>super_admin/save_country" method="post" class="">
                         <div class="row">
                             <div class="col-md-8 form-group">
-                                <label class="control-label">Category Name</label>
-                                <input type="text" name="category_name" class="form-control" placeholder="Enter category">
+                                <label class="control-label">Country Name</label>
+                                <input type="text" name="country_name" class="form-control" placeholder="Enter country">
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8 form-group">
-                                <label class="control-label">Category Description</label>
-                                <textarea class="form-control" name="category_description" rows="6" placeholder="Type Description"></textarea>
-                                
+                                <label class="control-label">Country Code</label>
+                                <input type="text" name="country_code" class="form-control" placeholder="Enter country Code">
 
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-8 form-group">
@@ -59,7 +57,7 @@
                             <div class="col-md-12">
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn green">Add Category</button>
+                                    <button type="submit" class="btn green">Add Country</button>
                                 </div>
                             </div></div>
                     </form>

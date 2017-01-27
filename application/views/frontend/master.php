@@ -12,7 +12,15 @@
         <link href="<?php echo base_url(); ?>css/fancybox/jquery.fancybox.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/flexslider.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
+        <style>
 
+            /*.grid {*/
+                /*display: inline-block;*/
+                /*margin:  10px;*/
+                /*padding:  0;*/
+                /*width:100%;*/
+            /*}*/
+        </style>
 
         <!-- Theme skin -->
         <link href="<?php echo base_url(); ?>skins/default.css" rel="stylesheet" />
@@ -50,6 +58,18 @@
         <script src="<?php echo base_url(); ?>js/portfolio/setting.js"></script>
         <script src="<?php echo base_url(); ?>js/jquery.flexslider.js"></script>
         <script src="<?php echo base_url(); ?>js/animate.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
         <script src="<?php echo base_url(); ?>js/custom.js"></script>
+    <script>
+        $(function(){
+            $('.grid').masonry({
+                // options
+                itemSelector: '.grid-item',
+                itemSelector: '.box'
+//                columnWidth: 200
+            });
+        });
+
+    </script>
     </body>
 </html>

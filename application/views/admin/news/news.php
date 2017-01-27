@@ -18,6 +18,8 @@
                             <th>Serial No</th>
                             <th>Title</th>
                             <th>Link</th>
+                            <th>Categoy</th>
+                            <th>Location</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -41,6 +43,8 @@
                              ?>
 
                         </td>
+                            <td><?php echo $v_news->category_name.' (' .$v_news->id. ') ';?></td>
+                            <td><?php echo $v_news->country_name;?></td>
                              <td><img src="<?php echo base_url();?><?php echo $v_news->news_image;?>" alt="news Image"></td>
                           <?php  if($v_news->news_status == 1){ ?>
                             <td>Published</td>

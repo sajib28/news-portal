@@ -3,23 +3,35 @@
 class Welcome_model extends CI_Model {
 
     public function get_categories() {
-        $query = $this->db->get('category');
-        $return = array();
-
-        foreach ($query->result() as $category) {
-            $return[$category->id] = $category;
-            $return[$category->id]->subs = $this->get_sub_categories($category->id); // Get the categories sub categories
+        $categories = $this->db->where('status',1)->get('category')->result();
+        $result = [];
+        foreach($categories as $category){
+            $this->db->where('category_id', $category->id);
+            $this->db->where('news_status',1);
+            $query = $this->db->get('news');
+            $result[$category->category_name] = $query->result();
         }
 
-        return $return;
+        return $result;
     }
+}
+/*
+$query = $this->db->get('category');
+$return = array();
 
-    public function get_sub_categories($category_id) {
-        $this->db->where('category_id', $category_id);
-         $this->db->where('news_status',1);
-        $query = $this->db->get('news');
-        return $query->result();
-    }
+foreach ($query->result() as $category) {
+$return[$category->id] = $category;
+$return[$category->id]->subs = $this->get_sub_categories($category->id); // Get the categories sub categories
+}
+
+return $return;
+}
+
+public function get_sub_categories($category_id) {
+    $this->db->where('category_id', $category_id);
+    $this->db->where('news_status',1);
+    $query = $this->db->get('news');
+    return $query->result();*/
 
 //    public function select_all_published_news() {
 //        $this->db->select('*');
@@ -113,4 +125,4 @@ class Welcome_model extends CI_Model {
 //        $result = $query_result->result();
 //        return $result;
 //    }
-}
+

@@ -21,25 +21,25 @@ Contact: sajibcse28@gmail.com
         <meta content="" name="author"/>
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/datatables/plugins/bootstrap/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
 
 
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url(); ?>assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url(); ?>assets/global/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/morris/morris.css" rel="stylesheet" type="text/css">
         <!-- END PAGE LEVEL PLUGIN STYLES -->
         <!-- BEGIN PAGE STYLES -->
         <link href="<?php echo base_url(); ?>assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
         <!-- END PAGE STYLES -->
-        <link href="<?php echo base_url(); ?>assets/global/plugins/ckeditor/skins/moono/editor.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>assets/global/ckeditor/skins/moono/editor.css" rel="stylesheet" type="text/css"/>
 
         <!-- BEGIN THEME STYLES -->
         <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
@@ -186,6 +186,20 @@ Contact: sajibcse28@gmail.com
                         </li>
                         <li>
                             <a href="javascript:;">
+                                <i class="fa fa-tags" aria-hidden="true"></i>
+                                <span class="title">Country</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>super_admin/manage_country">
+                                        <i class="fa fa-tags" aria-hidden="true"></i>
+                                        Country</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
                                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                                 <span class="title">News Details</span>
                                 <span class="arrow "></span>
@@ -257,6 +271,7 @@ Contact: sajibcse28@gmail.com
 
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
+
                 <?php echo $admin_maincontent; ?>
             </div>
             <!-- END CONTENT -->
@@ -276,27 +291,27 @@ Contact: sajibcse28@gmail.com
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- BEGIN CORE PLUGINS -->
         <!--[if lt IE 9]>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/respond.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/excanvas.min.js"></script> 
+        <script src="<?php echo base_url(); ?>assets/global/respond.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/global/excanvas.min.js"></script>
         <![endif]-->
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/jquery.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/jquery-migrate.min.js" type="text/javascript"></script>
         <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/jquery.cokie.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/select2/select2.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/select2/select2.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/datatables/media/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/pages/scripts/form-validation.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/ckeditor/ckeditor.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
         <!-- END PAGE LEVEL PLUGINS -->
 
 

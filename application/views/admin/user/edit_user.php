@@ -7,7 +7,7 @@
 
                 <div class="portlet-title">
                     <div class="caption">
-                        Add user
+                        Edit user <a class="btn green" href="#" onClick="history.go(-1); return false;"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a>
                     </div>
                 </div>
 
@@ -62,6 +62,7 @@
                                 <input type="text" name="created_date" class="form-control" value="<?php echo $update_user_info->created_date;?>">
                             </div>
                         </div>
+                        <div class="row">
                        <div class="col-md-8 form-group">
                                 <label class="control-label">Publish Status</label>
                                 <select name="status" class="form-control">
@@ -70,11 +71,12 @@
                                     <option value="0">0</option>
                                 </select>
                             </div>
+                            </div>
                         <div class="row">
                             <div class="col-md-12">
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn green">Add User</button>
+                                    <button type="submit" class="btn green">Update User</button>
                                 </div>
                             </div></div>
                     </form>

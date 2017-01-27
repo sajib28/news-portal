@@ -100,10 +100,13 @@ public function select_category_info_by_id($category_id) {
     }
 
     public function select_all_news() {
-        $this->db->select('*');
+        $this->db->select('news.*, category.id as category_id, category.category_name, country.id as country_id, country.country_name');
         $this->db->from('news');
+        $this->db->join('category', 'category.id = news.category_id', 'left');
+        $this->db->join('country', 'country.id = news.country_id', 'left');
         $query_result = $this->db->get();
         $result = $query_result->result();
+     /* print_r($result);die();*/
         return $result;
     }
 
@@ -112,7 +115,7 @@ public function select_category_info_by_id($category_id) {
         $this->db->from('category');
         $this->db->where('status',1);
         $query_result = $this->db->get();
-        $result = $query_result->row();
+        $result = $query_result->result();
         return $result;
      }
 
@@ -147,22 +150,58 @@ public function select_category_info_by_id($category_id) {
         $this->db->delete('news');
 }
 // End news Query
-     // Save project caregory info
-      public function save_project_category_info($data) {
-        $this->db->insert('project_category', $data);
-    }
-    
-    public function select_all_project_category() {
+
+
+// Start country query
+
+
+    public function select_all_country() {
         $this->db->select('*');
-        $this->db->from('project_category');
+        $this->db->from('country');
         $query_result = $this->db->get();
         $result = $query_result->result();
         return $result;
     }
-    // Save project
-    
-     public function save_project_info($data) {
-        $this->db->insert('project', $data);
+
+    public function save_country_info($data) {
+        $this->db->insert('country', $data);
     }
+
+
+    public function select_country_info_by_id($country_id) {
+        $this->db->select('*');
+        $this->db->from('country');
+        $this->db->where('id',$country_id);
+        $query_result = $this->db->get();
+        $result = $query_result->row();
+        return $result;
+    }
+
+    public function update_country_info_by_id($data,$country_id){
+        $this->db->where('id',$country_id);
+        $this->db->update('country',$data);
+    }
+    public function delete_country_info($country_id) {
+        $this->db->where('id', $country_id);
+        $this->db->delete('country');
+    }
+
+    /*// Save project caregory info
+     public function save_project_category_info($data) {
+       $this->db->insert('project_category', $data);
+   }
+
+   public function select_all_project_category() {
+       $this->db->select('*');
+       $this->db->from('project_category');
+       $query_result = $this->db->get();
+       $result = $query_result->result();
+       return $result;
+   }
+   // Save project
+
+    public function save_project_info($data) {
+       $this->db->insert('project', $data);
+   }*/
   
 }

@@ -46,11 +46,12 @@
                         <div class="row">
                             <div class="col-md-8 form-group">
                                 <label class="control-label">News Category</label>
+
                                 <select name="category_id" class="form-control">
                                     <option>Select Category Name</option>
 
                                     <?php
-                                    print_r($all_publish_category);
+//                                    print_r($all_publish_category);
                                     foreach ($all_publish_category as $v_category){
                                        ?>
                                     <option value="<?php echo $v_category->id;?>">

@@ -2,21 +2,27 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $session_id = $this->session->userdata('id');
+        $this->load->helper('custom_helper');
     }
 
-  public function index() {
+    public function index()
+    {
         $data = array();
         $data['categories'] = $this->welcome_model->get_categories();
+//      print_r($data);
 //      $data['all_publish_category'] = $this->welcome_model->select_all_published_category();
-       
+        $data['client_info'] = getLocationInfoByIp();
         $data['main_content'] = $this->load->view('frontend/home_content', $data, TRUE);
         $data['title'] = "Home";
         $data['breadcum'] = FALSE;
+
         $this->load->view('frontend/master', $data);
     }
 
@@ -35,14 +41,15 @@ class Welcome extends CI_Controller {
 //
 //    }
 
-    public function blog_details($blog_id) {
+    public function blog_details($blog_id)
+    {
         $data = array();
         $data['all_publish_category'] = $this->welcome_model->select_all_published_category();
         $data['comments_by_blog_id'] = $this->welcome_model->select_comments_by_blog_id($blog_id);
         $data['latest_posts'] = $this->welcome_model->select_latest_posts();
         $data['blog_info'] = $this->welcome_model->select_blog_info_by_id($blog_id);
         $total_hit = $data['blog_info']->hit_count + 1;
-        $this->welcome_model->update_hit_counter($total_hit,$blog_id);
+        $this->welcome_model->update_hit_counter($total_hit, $blog_id);
         $data['popular_posts'] = $this->welcome_model->select_popular_posts();
         $data['blog_info'] = $this->welcome_model->select_blog_info_by_id($blog_id);
         $data['main_content'] = $this->load->view('blog/single_post', $data, TRUE);
@@ -51,7 +58,8 @@ class Welcome extends CI_Controller {
         $this->load->view('blog_master', $data);
     }
 
-    public function category_blog($category_id) {
+    public function category_blog($category_id)
+    {
         $data = array();
         $data['all_publish_category'] = $this->welcome_model->select_all_published_category();
         $data['category_blog'] = $this->welcome_model->select_blog_by_category_id($category_id);
@@ -63,17 +71,19 @@ class Welcome extends CI_Controller {
         $this->load->view('blog_master', $data);
     }
 
-    public function portfolio() {
+    public function portfolio()
+    {
         $data = array();
         $data['all_publish_project_category'] = $this->welcome_model->select_all_published_project_category();
-        
+
         $data['main_content'] = $this->load->view('blog/portfolio_content', '', TRUE);
         $data['title'] = "Portfolio";
         $data['breadcum'] = TRUE;
         $this->load->view('master', $data);
     }
 
-    public function contact() {
+    public function contact()
+    {
         $data = array();
         $data['main_content'] = $this->load->view('blog/contact_content', '', TRUE);
         $data['title'] = "Contact Us";
@@ -81,7 +91,8 @@ class Welcome extends CI_Controller {
         $this->load->view('master', $data);
     }
 
-    public function sign_up() {
+    public function sign_up()
+    {
         $data = array();
         $data['main_content'] = $this->load->view('blog/sign_up', '', TRUE);
         $data['title'] = "Sign Up";
@@ -89,7 +100,8 @@ class Welcome extends CI_Controller {
         $this->load->view('master', $data);
     }
 
-    public function save_user() {
+    public function save_user()
+    {
         $data = array();
         $data['user_name'] = $this->input->post('user_name', TRUE);
         $data['email_address'] = $this->input->post('email_address', TRUE);
@@ -101,7 +113,8 @@ class Welcome extends CI_Controller {
         redirect('welcome/sign_up');
     }
 
-    public function login() {
+    public function login()
+    {
         $data = array();
         $data['main_content'] = $this->load->view('blog/login', '', TRUE);
         $data['title'] = "Login";
@@ -109,7 +122,8 @@ class Welcome extends CI_Controller {
         $this->load->view('master', $data);
     }
 
-    public function user_login_check() {
+    public function user_login_check()
+    {
         $email_address = $this->input->post('email_address', TRUE);
         $password = $this->input->post('password', TRUE);
         $result = $this->welcome_model->user_login_check_info($email_address, $password);
@@ -127,7 +141,8 @@ class Welcome extends CI_Controller {
         }
     }
 
-    public function post_comments() {
+    public function post_comments()
+    {
         $data = array();
         $data['blog_id'] = $this->input->post('blog_id', TRUE);
         $data['comments'] = $this->input->post('comments', TRUE);
@@ -139,7 +154,8 @@ class Welcome extends CI_Controller {
         redirect('welcome/blog_details/' . $data['blog_id']);
     }
 
-    public function logout() {
+    public function logout()
+    {
         $this->session->unset_userdata('id');
         $this->session->unset_userdata('user_name');
         $sdata = array();
@@ -147,6 +163,9 @@ class Welcome extends CI_Controller {
         $this->session->set_userdata($sdata);
         redirect('welcome/login');
     }
+
+
+
 
 }
 
